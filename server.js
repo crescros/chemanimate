@@ -14,8 +14,10 @@ app.use(cors());
 app.use(jwt());
 
 // api routes
-app.use('/users', require('./users/users.controller'));
-app.use('/animations', require('./animations/animations.controller'));
+const routeBase = '/chemanimate-app1/api/'
+
+app.use(routeBase + 'users', require('./users/users.controller'));
+app.use(routeBase + 'animations', require('./animations/animations.controller'));
 
 // global error handler
 app.use(errorHandler);
