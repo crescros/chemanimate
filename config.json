@@ -1,3 +1,3 @@
 ﻿{
-    "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
+    "secret": "dG4tS6hD4dNgoix4Gdx9sm4fic9dj3d3jk5F"
 }

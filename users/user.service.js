@@ -1,13 +1,16 @@
 ﻿const config = require('config.json');
 const jwt = require('jsonwebtoken');
+const fs = require('fs')
 
 // users hardcoded for simplicity, store in a db for production applications
-const users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+
 
 module.exports = {
     authenticate,
     getAll
 };
+
+const users = JSON.parse(fs.readFileSync('data/users.json', 'utf8'))
 
 async function authenticate({ username, password }) {
     const user = users.find(u => u.username === username && u.password === password);
