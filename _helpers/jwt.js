@@ -8,7 +8,18 @@ function jwt() {
     return expressJwt({ secret }).unless({
         path: [
             // public routes that don't require authentication
-            '/users/authenticate'
+            '/chemanimate-app1',
+            '/chemanimate-app1/',
+            '/chemanimate-app1/login/',
+            '/chemanimate-app1/login/style.css',
+            '/chemanimate-app1/app',
+            '/chemanimate-app1/app/',
+            '/chemanimate-app1/app/style.css',
+            '/chemanimate-app1/resetpassword/',
+            '/chemanimate-app1/resetpassword/style.css',
+            '/chemanimate-app1/signup/',
+            '/chemanimate-app1/signup/style.css',
+            '/chemanimate-app1/api/users/authenticate',
         ]
     });
 }
