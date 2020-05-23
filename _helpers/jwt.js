@@ -18,7 +18,7 @@ function jwt() {
             '/chemanimate-app1/app/style.css',
             '/chemanimate-app1/forgotpassword',
             '/chemanimate-app1/forgotpassword/',
-            '/chemanimate-app1/forgot/style.css',
+            '/chemanimate-app1/forgotpassword/style.css',
             '/chemanimate-app1/signup',
             '/chemanimate-app1/signup/',
             '/chemanimate-app1/signup/style.css',
