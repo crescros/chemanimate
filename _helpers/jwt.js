@@ -10,6 +10,7 @@ function jwt() {
             // public routes that don't require authentication
             '/chemanimate-app1',
             '/chemanimate-app1/',
+            '/chemanimate-app1/login',
             '/chemanimate-app1/login/',
             '/chemanimate-app1/login/style.css',
             '/chemanimate-app1/app',
