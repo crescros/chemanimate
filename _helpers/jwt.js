@@ -24,6 +24,7 @@ function jwt() {
         //     '/chemanimate-app1/signup/style.css',
         // ]
         path:[
+            /favicon.ico/, // for dev
             /chemanimate-app1\/app/,
             /chemanimate-app1\/api\/users\/authenticate/
         ]

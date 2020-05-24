@@ -19,6 +19,6 @@ async function getOne(id) {
 
     return animations.data.find(a =>{
         console.log(a.id)
-        return a.id = id
+        return a.id == id
     })
 }

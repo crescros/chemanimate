@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+
+
+#chemAnimate-display {
+    background: white;
+    border-radius: 12px;
+    width: 800px;
+    margin: 0 auto;
+    max-width: 100%
+}
+
+.container {
+    max-width: 830px
+}
+
+
+.atom {
+    transition: 1.2s ease-in-out
+}
+
+.spinning {
+    display: block;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#description {
+    width: 400px;
+    margin: 0 auto
+}

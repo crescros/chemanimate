@@ -7,7 +7,12 @@
 </head>
 <body>
     <script>
-        location.href = 'login'
+
+        if (sessionStorage.getItem('chemanimate-token')){
+            location.href = 'home'
+        } else {
+            location.href = 'login'
+        }
     </script>
 </body>
 </html>

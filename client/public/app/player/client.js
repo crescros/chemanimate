@@ -1,3 +1,4 @@
+let token = sessionStorage.getItem('chemanimate-token')
 let state = { step: 0 }
 let objects
 let states
@@ -221,7 +222,7 @@ const Electrons = (
     outerId = '#svg'
 ) => {
     $(outerId).append(SvgText(id, pos, 'e', 8, "black", 5))
-    $(outerId).append(SvgText(id, { x: pos.x + 2, y: pos.y - 2 }, '-' + num, 8, "black", 3))
+    $(outerId).append(SvgText(id, { x: pos.x + 4, y: pos.y - 2 }, '-' + num, 4, "black", 3))
 }
 
 const Atom = (
@@ -327,14 +328,10 @@ const nextStep = () => {
 }
 
 const previousStep = () => {
-
-
     if (state.step == 0) {
         location.href = chemAnimateConfig.urlPrevious
         return null
     }
-
-
 
     let translation = false
 
@@ -366,18 +363,25 @@ const previousStep = () => {
 
 const loadAnimation = (name) => {
     // PRODUCTION MODE
-    fetch("https://unichord-apps.com/api/chemanimate/animations/exampleAnimations1/" + name)
+    fetch("/chemanimate-app1/api/animations/" + name, {
+        "headers": {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
         .then(res => res.json())
         .then(data => {
             state.step = 0
-            objects = data.animation.objects
-            states = data.animation.states
 
-            $('#formula').html(data.animation.formula)
-            $('#animation-name').text(data.animation.name)
+            console.log(data)
+            objects = data.objects
+            states = data.states
+
+            $('#formula').html(data.formula)
+            $('#animation-name').text(data.name)
             $('#chemAnimate-display').html(`<svg viewBox='0 0 
-                ${data.animation.svgDimensions?data.animation.svgDimensions.x:200} 
-                ${data.animation.svgDimensions?data.animation.svgDimensions.y:100}
+                ${data.svgDimensions?data.svgDimensions.x:200} 
+                ${data.svgDimensions?data.svgDimensions.y:100}
             ' id='svg'></svg>`)
             
             
@@ -430,8 +434,8 @@ $(document).ready(() => {
     init()
     var urlParams = new URLSearchParams(window.location.search);
 
-    if (urlParams.get('animation')) {
-        loadAnimation(urlParams.get('animation'))
+    if (urlParams.get('a')) {
+        loadAnimation(urlParams.get('a'))
     } else if (!chemAnimateConfig.animationName) {
         loadAnimation('default')
     } else {

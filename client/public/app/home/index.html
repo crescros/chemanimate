@@ -4,30 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
 
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-4">
+            <a class="navbar-brand" href="#">ChemAnimate</a>
+            <span id='username'></span>
+        </nav>
+
+        <div class='container'>
+            <div class='row'>
+                <div class='col'>
+                    <h3>
+                        Animations
+                    </h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Reaction Name</th>
+                                <th>Formula</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id='animations'>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script>
-
         const token = sessionStorage.getItem('chemanimate-token')
+        const username = sessionStorage.getItem('chemanimate-username')
 
+        $('#username').text(username)
 
-        fetch('/chemanimate-app1/api/users', {
+        const Row = (a, b, c) => {
+            return `<tr>
+                    <td>${a}</td>
+                    <td>${b}</td>
+                    <td>${c}</td>
+                </tr>`
+        }
+
+        fetch('/chemanimate-app1/api/animations', {
             "headers": {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
         }).then(res => res.json())
-        .then(res => {
-            if(res.message == "Invalid Token"){
-                location.href = '../'
-            }
-        })
+            .then(res => {
+                console.log(res)
+
+                for (animation of res.data) {
+                    $('#animations').append(
+                        Row(
+                            `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
+                            animation.formula,
+                            animation.series?animation.series:''
+                        )
+                    )
+                }
+                if (res.message == "Invalid Token") {
+                    location.href = '../'
+                }
+            })
     </script>
 
-    great job you logged in.
 </body>
 
 </html>

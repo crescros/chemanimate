@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemAnimate</title>
+    <link rel="shortcut icon" href="https://unichord-apps.com/images/chemanimate.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        html,
+        body {
+            background: black;
+            color: white;
+        }
+        
+        *{max-width: 100%;}
+
+        .list-group-item {
+            padding: 1px;
+        }
+
+        .element {
+            background: #272727;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            width: 24px;
+            display: inline-block
+        }
+
+        .text-warning {
+            color: #ccd05f !important
+        }
+
+        .container {
+            border: solid 8px white;
+            padding: 20px 40px;
+            border-radius: 24px;
+            background: #201f24;
+            color: white;
+        }
+
+        #description {
+            min-height: 72px
+        }
+
+        .btn-primony {
+            background: #3c61b5;
+            color: white
+        }
+
+        .btn-primony:hover {
+            background: white;
+            color: black;
+        }
+
+        #chemAnimate-display{
+            margin-top:47px
+        }
+
+        #activity-series{
+            background: #444;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class='mb-3 p-3'>
+        <a class='text-white' href='../'>Back to ChemAnimate home page</a>
+    </div>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col text-center'>
+                <h1 id='animation-name' class='text-center'></h1>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col'>
+                <h1 id='formula' class='text-center text-warning'></h1>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-md-12'>
+                <div id='chemAnimate-display'>
+
+                </div>
+
+                <div class='row my-2'>
+                    <div class='col text-center'>
+                        <p id='description'></p>
+                    </div>
+                </div>
+                
+                <div class='row my-2' id='control-row'>
+                    <div class='col-4 text-center'>
+                        <btn id='previousStep' class='btn btn-outline-light'>previous</btn>
+                        </p>
+                    </div>
+                    <div class='col-4 text-center step-outer'>
+                        <p>Step: <span id='step'></span></p>
+                    </div>
+                    <div class='col-4 text-center '>
+                        <btn id='nextStep' class='btn btn-primony'>next</btn>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--<div class='col-md-3'>-->
+            <!--    <div id='activity-series'>-->
+            <!--        <ul class="list-group text-dark">-->
+            <!--        </ul>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+
+    <script>
+        const chemAnimateConfig = {
+            
+        }
+    </script>
+    <script src='client.js'></script>
+</body>
+
+</html>

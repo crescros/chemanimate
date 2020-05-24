@@ -57,11 +57,11 @@
                 })
                     .then(res => res.json())
                     .then(res => {
-                        const token = res.token
 
-                        if (token) {
-                            sessionStorage.setItem('chemanimate-token', token)
-                            location.href = '../app/'
+                        if (res.token) {
+                            sessionStorage.setItem('chemanimate-token', res.token)
+                            sessionStorage.setItem('chemanimate-username', res.username)
+                            location.href = '../home/'
                         } else {
                             location.reload()
                         }
