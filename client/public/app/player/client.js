@@ -209,7 +209,7 @@ const Bond = (
         $(outerId).append(Line(ids, center1, center2, 'black', 6))
         $(outerId).append(Line(ids, center1, center2, 'white'))
     } else if (ids[2] == 'ionic') {
-        $(outerId).append(Line(ids, center1, center2, '#cccccc', 6, 'dashed'))
+        $(outerId).append(Line(ids, center1, center2, '#cccccc', 2, 'dashed'))
     } else {
         $(outerId).append(Line(ids, center1, center2))
     }
