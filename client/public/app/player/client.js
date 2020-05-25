@@ -167,7 +167,7 @@ let elements = {
     "S": {
         "name": "Sulphur",        
         "color": {
-            "background": "yellow",
+            "background": "#aac752",
             "text": "black"
         }
     }
