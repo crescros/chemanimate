@@ -163,6 +163,13 @@ let elements = {
             "background": "#f1aed5",
             "text": "black"
         }
+    },
+    "S": {
+        "name": "Sulphur",        
+        "color": {
+            "background": "yellow",
+            "text": "black"
+        }
     }
 
 }
@@ -377,7 +384,7 @@ const loadAnimation = (name) => {
             objects = data.objects
             states = data.states
 
-            $('#formula').html(data.formula)
+            $('#formula').html(data.reactants + " → " + data.products)
             $('#animation-name').text(data.name)
             $('#chemAnimate-display').html(`<svg viewBox='0 0 
                 ${data.svgDimensions?data.svgDimensions.x:200} 

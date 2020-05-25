@@ -78,7 +78,7 @@
                     $('#animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
-                            animation.formula,
+                            animation.reactants + " → " + animation.products,
                             animation.series?animation.series:''
                         )
                     )
