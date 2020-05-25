@@ -46,8 +46,6 @@
                     "password": $('#login-form-password').val()
                 }
 
-                console.log(postBody)
-
                 fetch('/chemanimate-app1/api/users/authenticate', {
                     "method": "POST",
                     "headers": {
@@ -58,9 +56,12 @@
                     .then(res => res.json())
                     .then(res => {
 
+
+                        console.log
                         if (res.token) {
                             sessionStorage.setItem('chemanimate-token', res.token)
                             sessionStorage.setItem('chemanimate-username', res.username)
+                            sessionStorage.setItem('chemanimate-groups', JSON.stringify(res.groups))
                             location.href = '../home/'
                         } else {
                             location.reload()

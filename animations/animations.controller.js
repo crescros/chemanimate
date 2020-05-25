@@ -4,6 +4,7 @@ const animationService = require('./animation.service');
 
 // routes
 router.get('/', getAll);
+router.get('/trials', getTrials);
 router.get('/:id', getOne);
 
 module.exports = router;
@@ -14,8 +15,14 @@ function getOne(req, res, next) {
         .catch(err => next(err));
 }
 
+function getTrials(req, res, next) {
+    animationService.getTrials()
+        .then(users => res.json(users))
+        .catch(err => next(err));
+}
+
 function getAll(req, res, next) {
     animationService.getAll()
-        .then(users => res.json(users))
+        .then(users => res.json(users.data))
         .catch(err => next(err));
 }

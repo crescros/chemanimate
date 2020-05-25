@@ -5,7 +5,8 @@ const fs = require('fs')
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    getTrials
 };
 
 const animations = JSON.parse(fs.readFileSync('data/animations.json', 'utf8'))
@@ -16,9 +17,15 @@ async function getAll() {
 }
 
 async function getOne(id) {
-
-    return animations.data.find(a =>{
-        console.log(a.id)
+    return animations.data.find(a => {
         return a.id == id
+    })
+}
+async function getTrials() {
+    return animations.data.filter(a => {
+        if (a.tags) {
+            console.log(a.tags)
+            return a.tags.includes("trial")
+        }
     })
 }

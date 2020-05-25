@@ -26,7 +26,8 @@ function jwt() {
         path:[
             /favicon.ico/, // for dev
             /chemanimate-app1\/app/,
-            /chemanimate-app1\/api\/users\/authenticate/
+            /chemanimate-app1\/api\/users\/authenticate/,
+            /chemanimate-app1\/api\/animations\/trials/
         ]
     });
 }
