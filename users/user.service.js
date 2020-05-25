@@ -10,7 +10,7 @@ module.exports = {
     changePassword
 };
 
-const users = JSON.parse(fs.readFileSync("data/users.json", "utf8"));
+let users = JSON.parse(fs.readFileSync("data/users.json", "utf8"));
 
 async function authenticate({ username, password }) {
     const user = users.find(
@@ -38,11 +38,8 @@ async function changePassword({ username, password, newpassword }) {
     );
 
     if (userIndex !== -1 ) {
-
-        console.log(userIndex)
-        let newUsers = [...users];
-        newUsers[userIndex] = { ...newUsers[userIndex], password: newpassword };
-        fs.writeFileSync("data/users.json", JSON.stringify(newUsers));
+        users[userIndex] = { ...users[userIndex], password: newpassword };
+        fs.writeFileSync("data/users.json", JSON.stringify(users));
 
         return "Password Changed"
     }
