@@ -81,6 +81,10 @@
         const username = sessionStorage.getItem('chemanimate-username')
         const groups = JSON.parse(sessionStorage.getItem('chemanimate-groups'))
 
+        if (!token){
+            location.href = '../login'
+        }
+
         $('#username').text(username)
 
         const signout = () => {
