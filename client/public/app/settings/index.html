@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
+    <title>ChemAnimate</title>
+
+    <style>
+        #username {
+            min-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-4">
+            <a class="navbar-brand" href="#">ChemAnimate</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown" width=200px>
+                        <a min-width='200px' id='username' class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="settings">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="signout()">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class='container'>
+            <div class='row'>
+                <div class='col'>
+
+
+                    <h3>Settings</h3>
+
+                    <div class='card'>
+                        <div class='card-header'>
+
+                            <h5>Change Password</h5>
+                        </div>
+
+                        <div class='card-body'>
+
+                            <form id='change-password'>
+                                <div class='form-group'>
+                                    <label>
+                                        Password:
+                                    </label>
+                                    <input class='form-control' id='password' type='password'>
+                                </div>
+                                <div class='form-group'>
+                                    <label>
+                                        New Password:
+                                    </label>
+                                    <input class='form-control' id='newpassword' type='password'>
+                                </div>
+                                <div class='form-group'>
+                                    <label>
+                                        Confirm New Password:
+                                    </label>
+                                    <input class='form-control' id='newpassword-confirm' type='password'>
+                                </div>
+                                <button class='btn btn-danger'>
+                                    Change Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        const token = sessionStorage.getItem('chemanimate-token')
+        const username = sessionStorage.getItem('chemanimate-username')
+
+        $('#username').text(username)
+
+        const signout = () => {
+            sessionStorage.clear()
+            location.href = '../login'
+        }
+
+
+        const changepassword = () => {
+
+            const newpassword = $('#newpassword').val()
+            const newpasswordConfirm = $('#newpassword-confirm').val()
+            const password = $('#password').val()
+            if (newpassword !== newpasswordConfirm) {
+                alert("confim password doesn't match")
+                location.reload()
+                return false
+            }
+
+            const postBody = {
+                "username": username,
+                "password": password,
+                "newpassword": newpassword
+            }
+
+            fetch('/chemanimate-app1/api/users/changepassword', {
+                "method": "post",
+                "body": JSON.stringify(postBody),
+                "headers": {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            }).then(res => res.json())
+                .then(res => {
+                    alert(res.message)
+                    location.reload()
+                })
+        }
+
+        $('#change-password').on('submit', e => {
+            e.preventDefault()
+            changepassword()
+        })
+
+    </script>
+
+</body>
+
+</html>
