@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
-    <title>Document</title>
+    <title>ChemAnimate</title>
+
+    <style>
+        #username{
+            min-width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,7 +19,26 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-4">
             <a class="navbar-brand" href="#">ChemAnimate</a>
-            <span id='username'></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown" width=200px>
+                        <a min-width='200px' id='username' class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="settings">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="signout()">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
         <div class='container'>
@@ -57,6 +82,11 @@
 
         $('#username').text(username)
 
+        const signout = () => {
+            sessionStorage.clear()
+            location.href = '../login'
+        }
+
         const Row = (a, b, c) => {
             return `<tr>
                     <td>${a}</td>
@@ -79,7 +109,7 @@
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
                             animation.reactants + " → " + animation.products,
-                            animation.series?animation.series:''
+                            animation.series ? animation.series : ''
                         )
                     )
                 }
