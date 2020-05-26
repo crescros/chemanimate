@@ -8,7 +8,7 @@
         "url": "https://github.com/cornflourblue/node-jwt-authentication-api.git"
     },
     "scripts": {
-        "start": "nodemon ./server.js"
+        "start": "nodemon ./server.js && open http://localhost:3016/chemanimate-app1/app"
     },
     "dependencies": {
         "body-parser": "^1.18.3",

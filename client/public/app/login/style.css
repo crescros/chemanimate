@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .body{
- 
-  background-image: url('https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -16,7 +14,7 @@
   position: relative;
   z-index: 1;
   background: #000000;
-  max-width: 360px;
+  max-width: fit-content;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
