@@ -6,7 +6,7 @@ const fs = require("fs");
 
 module.exports = {
     authenticate,
-    getAll,
+    makeOne,
     changePassword
 };
 
@@ -26,11 +26,24 @@ async function authenticate({ username, password }) {
     }
 }
 
-async function getAll() {
-    return users.map((u) => {
-        const { password, ...userWithoutPassword } = u;
-        return userWithoutPassword;
-    });
+async function makeOne({ username, password}) {
+
+
+    if (users.find(u => u.username == username )){
+        return "user exists"
+    } else if ( password.length < 8) {
+        return "password must be at least 8 characters"
+    } else {       
+        users.push({
+            "username": username,
+            "password": password,
+            "groups": ["trial"]
+        })
+        
+        fs.writeFileSync("data/users.json", JSON.stringify(users));
+        
+        return "user created"
+    }
 }
 
 async function changePassword({ username, password, newpassword }) {

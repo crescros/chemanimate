@@ -5,7 +5,7 @@ const userService = require('./user.service');
 // routes
 router.post('/authenticate', authenticate);
 router.post('/changepassword', changePassword);
-router.get('/', getAll);
+router.post('/', makeOne);
 
 module.exports = router;
 
@@ -15,8 +15,8 @@ function authenticate(req, res, next) {
         .catch(err => next(err));
 }
 
-function getAll(req, res, next) {
-    userService.getAll()
+function makeOne(req, res, next) {
+    userService.makeOne(req.body)
         .then(users => res.json(users))
         .catch(err => next(err));
 }
