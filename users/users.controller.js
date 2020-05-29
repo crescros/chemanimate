@@ -5,7 +5,7 @@ const userService = require('./user.service');
 // routes
 router.post('/authenticate', authenticate);
 router.post('/changepassword', changePassword);
-router.post('/', makeOne);
+router.post('/create', makeOne);
 
 module.exports = router;
 

@@ -1,31 +1,83 @@
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="en">
 <html>
+
 <head>
   <title>Sign Up</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../login/style.css">
 </head>
-<body style= "background: url(https://unichord-apps.com/images/chemanimate.jpg) no-repeat">
-<body class="body">
 
-  
-<div class="login-page">
-  <div class="form">
+<body style="background: url(https://unichord-apps.com/images/chemanimate.jpg) no-repeat">
 
-    <form>
-      <input type="text" placeholder="email address"/>
-      <input type="password" placeholder="password"/>
-      <input type="password" placeholder="confirm password"/>
-      
-    </form>
+  <body class="body">
 
-    <form class="login-form">
-      <button type="button" >SIGN UP</button>
-    </form>
-  </div>
-</div>
 
-</body>
+    <div class="login-page">
+      <div class="form">
+
+        <form >
+          <input id='username' type="text" placeholder="email address" />
+          <input id='password' type="password" placeholder="password" />
+          <input id='password-confirm' type="password" placeholder="confirm password" />
+
+          <button id='signup-form' type="button">SIGN UP</button>
+        </form>
+
+        <p><a href='../login/'>back to login</a></p>
+
+
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script>
+
+
+      $('#signup-form').on('click', e => {
+        e.preventDefault()
+       
+        const password = $('#password').val()
+        const passwordConfirm = $('#password-confirm').val()
+        const username = $('#username').val()
+
+        if (password !== passwordConfirm) {
+          alert("confim password doesn't match")
+          location.reload()
+          return false
+        }
+
+        const postBody = {
+          "username": username,
+          "password": password,
+        }
+
+        fetch('/chemanimate-app1/api/users/create/', {
+          "method": "post",
+          "body": JSON.stringify(postBody),
+          "headers": {
+            'Content-Type': 'application/json'
+          }
+        }).then(res => res.json())
+          .then(res => {
+            alert(res.message)
+            location.href = '../login'
+          }).catch(e => {
+            console.log(e)
+          })
+      })
+
+    </script>
+  </body>
+
 </html>

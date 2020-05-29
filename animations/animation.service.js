@@ -1,7 +1,4 @@
-﻿const config = require('../config.json');
-const jwt = require('jsonwebtoken');
-const fs = require('fs')
-
+﻿const fs = require('fs')
 
 module.exports = {
     getAll,

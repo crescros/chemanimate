@@ -41,3 +41,5 @@ typings
 #chemAnimate
 data
 .DS_Store
+.env
+config.json

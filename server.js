@@ -1,4 +1,5 @@
-﻿require('rootpath')();
+﻿require('dotenv').config();
+require('rootpath')();
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -14,11 +15,11 @@ app.use(cors());
 app.use(jwt());
 
 // api routes
-const routeBase = '/chemanimate-app1/api/'
+const routeBase = process.env.APIROOT
 
-app.use(routeBase + 'users', require('./users/users.controller'));
-app.use(routeBase + 'animations', require('./animations/animations.controller'));
-app.use('/chemanimate-app1', require('./client/client.controller'));
+app.use(routeBase + '/api/users', require('./users/users.controller'));
+app.use(routeBase + '/api/animations', require('./animations/animations.controller'));
+app.use(routeBase, require('./client/client.controller'));
 
 
 // global error handler

@@ -3,172 +3,174 @@ let state = { step: 0 };
 let objects;
 let states;
 let elements = {
-    O: {
-        name: "Oxygen",
-        color: {
-            background: "#e13646",
-            text: "white",
+    "O": {
+        "name": "Oxygen",
+        "type": "nonmetal",
+        "oxidation_number": -2,
+        "color": {
+            "background": "#e13646",
+            "text": "white",
         },
     },
-    H: {
-        name: "Hydrogen",
-        color: {
-            background: "black",
-            text: "white",
+    "H": {
+        "name": "Hydrogen",
+        "color": {
+            "background": "black",
+            "text": "white",
         },
     },
-    Na: {
-        name: "Sodium",
-        color: {
-            background: "#f0ef8a",
-            text: "black",
+    "Na": {
+        "name": "Sodium",
+        "color": {
+            "background": "#f0ef8a",
+            "text": "black",
         },
     },
-    N: {
-        name: "Nitrogen",
-        color: {
-            background: "#154e96",
-            text: "white",
+    "N": {
+        "name": "Nitrogen",
+        "color": {
+            "background": "#154e96",
+            "text": "white",
         },
     },
-    Cl: {
-        name: "Chlorine",
-        color: {
-            background: "#c3e67c",
-            text: "black",
+    "Cl": {
+        "name": "Chlorine",
+        "color": {
+            "background": "#c3e67c",
+            "text": "black",
         },
     },
-    C: {
-        name: "Carbon",
-        color: {
-            background: "#78532c",
-            text: "white",
+    "C": {
+        "name": "Carbon",
+        "color": {
+            "background": "#78532c",
+            "text": "white",
         },
     },
-    Zn: {
-        name: "Zinc",
-        color: {
-            background: "#cfc8d0",
-            text: "black",
+    "Zn": {
+        "name": "Zinc",
+        "color": {
+            "background": "#cfc8d0",
+            "text": "black",
         },
     },
-    Sn: {
-        name: "Tin",
-        color: {
-            background: "#c8cdd8",
-            text: "black",
+    "Sn": {
+        "name": "Tin",
+        "color": {
+            "background": "#c8cdd8",
+            "text": "black",
         },
     },
-    Ni: {
-        name: "Nickel",
-        color: {
-            background: "#bbc1c1",
-            text: "black",
+    "Ni": {
+        "name": "Nickel",
+        "color": {
+            "background": "#bbc1c1",
+            "text": "black",
         },
     },
-    Al: {
-        name: "Aluminum",
-        color: {
-            background: "#acabb2",
-            text: "black",
+    "Al": {
+        "name": "Aluminum",
+        "color": {
+            "background": "#acabb2",
+            "text": "black",
         },
     },
-    Fe: {
-        name: "Iron",
-        color: {
-            background: "#413f40",
-            text: "white",
+    "Fe": {
+        "name": "Iron",
+        "color": {
+            "background": "#413f40",
+            "text": "white",
         },
     },
-    Pb: {
-        name: "Lead",
-        color: {
-            background: "#5c5969",
-            text: "white",
+    "Pb": {
+        "name": "Lead",
+        "color": {
+            "background": "#5c5969",
+            "text": "white",
         },
     },
-    Cu: {
-        name: "Copper",
-        color: {
-            background: "#dcaf3e",
-            text: "black",
+    "Cu": {
+        "name": "Copper",
+        "color": {
+            "background": "#dcaf3e",
+            "text": "black",
         },
     },
-    Br: {
-        name: "Bromine",
-        color: {
-            background: "#4f2a81",
-            text: "white",
+    "Br": {
+        "name": "Bromine",
+        "color": {
+            "background": "#4f2a81",
+            "text": "white",
         },
     },
-    Au: {
-        name: "Gold",
-        color: {
-            background: "#f2e15b",
-            text: "black",
+    "Au": {
+        "name": "Gold",
+        "color": {
+            "background": "#f2e15b",
+            "text": "black",
         },
     },
-    Ag: {
-        name: "Silver",
-        color: {
-            background: "#e0e6e8",
-            text: "black",
+    "Ag": {
+        "name": "Silver",
+        "color": {
+            "background": "#e0e6e8",
+            "text": "black",
         },
     },
-    Mn: {
-        name: "Manganese",
-        color: {
-            background: "#1d285e",
-            text: "white",
+    "Mn": {
+        "name": "Manganese",
+        "color": {
+            "background": "#1d285e",
+            "text": "white",
         },
     },
-    Mg: {
-        name: "Magnesium",
-        color: {
-            background: "#cb9add",
-            text: "black",
+    "Mg": {
+        "name": "Magnesium",
+        "color": {
+            "background": "#cb9add",
+            "text": "black",
         },
     },
-    Pt: {
-        name: "Platinum",
-        color: {
-            background: "#969fab",
-            text: "black",
+    "Pt": {
+        "name": "Platinum",
+        "color": {
+            "background": "#969fab",
+            "text": "black",
         },
     },
-    Ca: {
-        name: "Calcium",
-        color: {
-            background: "#f0b55f",
-            text: "black",
+    "Ca": {
+        "name": "Calcium",
+        "color": {
+            "background": "#f0b55f",
+            "text": "black",
         },
     },
-    K: {
-        name: "Potassium",
-        color: {
-            background: "#ea8a51",
-            text: "black",
+    "K": {
+        "name": "Potassium",
+        "color": {
+            "background": "#ea8a51",
+            "text": "black",
         },
     },
-    Rb: {
-        name: "Rubidium",
-        color: {
-            background: "#e14090",
-            text: "black",
+    "Rb": {
+        "name": "Rubidium",
+        "color": {
+            "background": "#e14090",
+            "text": "black",
         },
     },
-    Li: {
-        name: "Lithium",
-        color: {
-            background: "#f1aed5",
-            text: "black",
+    "Li": {
+        "name": "Lithium",
+        "color": {
+            "background": "#f1aed5",
+            "text": "black",
         },
     },
-    S: {
-        name: "Sulphur",
-        color: {
-            background: "#aac752",
-            text: "black",
+    "S": {
+        "name": "Sulphur",
+        "color": {
+            "background": "#aac752",
+            "text": "black",
         },
     },
 };
@@ -228,9 +230,9 @@ const Line = (
     ${dashed && 'stroke-dasharray="1,1"'}
     class='atom atom-${ids[0]} atom-${ids[1]} atom-bond' x1=${center1.x} y1=${
         center1.y
-    } x2=${center2.x} y2=${
+        } x2=${center2.x} y2=${
         center2.y
-    } style="stroke:${color};stroke-width:${thickness}"></line>`);
+        } style="stroke:${color};stroke-width:${thickness}"></line>`);
 };
 
 const Circle = (id, center, color = "black", radius = 10, outerId = "#svg") => {
@@ -485,13 +487,13 @@ const loadAnimation = (name) => {
                         elements[element]
                             ? elements[element].color.background
                             : "black"
-                    };color:${
+                        };color:${
                         elements[element]
                             ? elements[element].color.text
                             : "white"
-                    }'> ${element}</span> ${
+                        }'> ${element}</span> ${
                         elements[element] ? elements[element].name : null
-                    }</li>
+                        }</li>
                     `);
                 });
 
