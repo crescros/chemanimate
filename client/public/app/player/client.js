@@ -450,7 +450,7 @@ const previousStep = () => {
 
 const loadAnimation = (name) => {
     // PRODUCTION MODE
-    fetch("/chemanimate-app1/api/animations/" + name, {
+    fetch("../../api/animations/" + name, {
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
