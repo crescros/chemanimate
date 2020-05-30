@@ -17,12 +17,12 @@ function getOne(req, res, next) {
 
 function getTrials(req, res, next) {
     animationService.getTrials()
-        .then(users => res.json(users))
+        .then(animations => res.json(animations))
         .catch(err => next(err));
 }
 
 function getAll(req, res, next) {
-    animationService.getAll()
-        .then(users => res.json(users.data))
+    animationService.getAll(req.query)
+        .then(animations => res.json(animations))
         .catch(err => next(err));
 }

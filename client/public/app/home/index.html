@@ -42,24 +42,94 @@
         </nav>
 
         <div class='container'>
-            <div class='row'>
+            <div class='row mb-2'>
                 <div class='col'>
-                    <h3>
+                    <h2>
                         Animations
-                    </h3>
-                    <table class='table'>
-                        <thead>
-                            <tr>
-                                <th>Reaction Name</th>
-                                <th>Formula</th>
-                                <th>Type</th>
-                            </tr>
-                        </thead>
-                        <tbody id='animations'>
-                        </tbody>
-                    </table>
+                    </h2>
                 </div>
             </div>
+
+
+            <div class='row mb-2'>
+                <div class='col'>
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h3>
+                                Synthesis
+                            </h3>
+                        </div>
+                        <div class='card-body'>
+                            <table class='table'>
+                                <tbody id='synthesis-animations'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='row mb-2'>
+                <div class='col'>
+                    <div class='card'>
+                        <div class='card-header'>
+                            <h3>
+                                Decomposition
+                            </h3>
+                        </div>
+                        <div class='card-body'>
+
+                            <table class='table'>
+
+                                <tbody id='decomposition-animations'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='row mb-2'>
+                <div class='col'>
+                    <div class='card'>
+                        <div class='card-header'>
+
+                            <h3>
+                                Single Replacement
+                            </h3>
+                        </div>
+                        <div class='card-body'>
+                            
+                            <table class='table'>
+                                
+                                <tbody id='single-replacement-animations'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col'>
+                    <div class='card'>
+                        <div class='card-header'>
+
+                            <h3>
+                                Double Replacement
+                            </h3>
+                        </div>
+                        <div class='card-body'>
+                            <table class='table'>
+                                <tbody id='double-replacement-animations'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 
@@ -81,7 +151,7 @@
         const username = sessionStorage.getItem('chemanimate-username')
         const groups = JSON.parse(sessionStorage.getItem('chemanimate-groups'))
 
-        if (!token){
+        if (!token) {
             location.href = '../login'
         }
 
@@ -92,31 +162,28 @@
             location.href = '../login'
         }
 
-        const Row = (a, b, c) => {
+        const Row = (a, b) => {
             return `<tr>
                     <td>${a}</td>
                     <td>${b}</td>
-                    <td>${c}</td>
                 </tr>`
         }
 
         let apiurl = '../../api/animations'
 
-        if(!groups.includes('member')){
+        if (!groups.includes('member')) {
             apiurl += '/trials'
         }
 
-        fetch(apiurl, {
+
+        fetch(apiurl + '/?type=Synthesis', {
             "headers": {
-                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
         }).then(res => res.json())
             .then(res => {
-                console.log(res)
-
                 for (animation of res) {
-                    $('#animations').append(
+                    $('#synthesis-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
                             animation.reactants + " → " + animation.products,
@@ -128,6 +195,73 @@
                     location.href = '../'
                 }
             })
+
+
+        fetch(apiurl + '/?type=Decomposition', {
+            "headers": {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json())
+            .then(res => {
+                for (animation of res) {
+                    $('#decomposition-animations').append(
+                        Row(
+                            `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
+                            animation.reactants + " → " + animation.products,
+                            animation.series ? animation.series : ''
+                        )
+                    )
+                }
+                if (res.message == "Invalid Token") {
+                    location.href = '../'
+                }
+            })
+
+
+
+        fetch(apiurl + '/?type=Single+Replacement', {
+            "headers": {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json())
+            .then(res => {
+                for (animation of res) {
+                    $('#single-replacement-animations').append(
+                        Row(
+                            `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
+                            animation.reactants + " → " + animation.products,
+                            animation.series ? animation.series : ''
+                        )
+                    )
+                }
+                if (res.message == "Invalid Token") {
+                    location.href = '../'
+                }
+            })
+
+
+
+        fetch(apiurl + "/?type=Double+Replacement", {
+            "headers": {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json())
+            .then(res => {
+                for (animation of res) {
+                    $('#double-replacement-animations').append(
+                        Row(
+                            `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
+                            animation.reactants + " → " + animation.products,
+                            animation.series ? animation.series : ''
+                        )
+                    )
+                }
+                if (res.message == "Invalid Token") {
+                    location.href = '../'
+                }
+            })
+
+
 
     </script>
 

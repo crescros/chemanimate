@@ -9,8 +9,16 @@ module.exports = {
 const animations = JSON.parse(fs.readFileSync('data/animations.json', 'utf8'))
 
 
-async function getAll() {
-    return animations
+async function getAll(params) {
+    console.log(params.type)
+    if (params.type){
+        return animations.data.filter(a => {
+            console.log(a)
+            return a.series === params.type
+        })
+    } else {
+        return animations.data
+    }
 }
 
 async function getOne(id) {
