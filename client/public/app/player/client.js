@@ -331,10 +331,21 @@ const render = () => {
     $("#svg").empty();
     $("#previousStep").show();
     $("#nextStep").show();
-    if (step < 1 && !chemAnimateConfig.urlPrevious) $("#previousStep").hide();
+    $("#reactants").removeClass('text-underline')
+    $("#products").removeClass('text-underline')
 
-    if (step == states.length - 1 && !chemAnimateConfig.urlNext)
+    // if first step
+    if (step < 1 && !chemAnimateConfig.urlPrevious){
+        $("#reactants").addClass('text-underline')
+        $("#previousStep").hide();
+    }
+    
+    // if last step
+    if (step == states.length - 1 && !chemAnimateConfig.urlNext){
+        $("#products").addClass('text-underline')
         $("#nextStep").hide();
+    }
+    
     let positions = states[step].positions;
 
     //render bonds
@@ -464,7 +475,7 @@ const loadAnimation = (name) => {
             objects = data.objects;
             states = data.states;
 
-            $("#formula").html(data.reactants + " → " + data.products);
+            $("#formula").html(`<span id='reactants'>${data.reactants}</span> → <span id='products'>${data.products}</span>`);
             $("#animation-name").text(data.name);
             $("#chemAnimate-display").html(`<svg viewBox='0 0 
                 ${data.svgDimensions ? data.svgDimensions.x : 200} 
