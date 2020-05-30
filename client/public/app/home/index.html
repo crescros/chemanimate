@@ -186,7 +186,7 @@
                     $('#synthesis-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
-                            animation.reactants + " → " + animation.products,
+                            animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
                             animation.series ? animation.series : ''
                         )
                     )
@@ -207,7 +207,7 @@
                     $('#decomposition-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
-                            animation.reactants + " → " + animation.products,
+                            animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
                             animation.series ? animation.series : ''
                         )
                     )
@@ -229,7 +229,7 @@
                     $('#single-replacement-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
-                            animation.reactants + " → " + animation.products,
+                            animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
                             animation.series ? animation.series : ''
                         )
                     )
@@ -251,7 +251,7 @@
                     $('#double-replacement-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
-                            animation.reactants + " → " + animation.products,
+                            animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
                             animation.series ? animation.series : ''
                         )
                     )
