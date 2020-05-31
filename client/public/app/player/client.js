@@ -294,7 +294,7 @@ const Atom = (
             text,
             14,
             color.text,
-            12,
+            10,
             outerId,
             "symbol"
         )
