@@ -218,6 +218,15 @@ let elements = {
             "background": "#aac752",
             "text": "black",
         },
+    },    
+    "Ba": {
+        "name": "Barium",
+        "type": "metal",
+        "oxidation_number": [1,2],
+        "color": {
+            "background": "#aac752",
+            "text": "black",
+        },
     },
 }
 
