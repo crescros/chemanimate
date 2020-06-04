@@ -132,6 +132,25 @@
                 </div>
             </div>
 
+            <div class='row'>
+                <div class='col'>
+                    <div class='card'>
+                        <div class='card-header'>
+
+                            <h3>
+                                Other
+                            </h3>
+                        </div>
+                        <div class='card-body'>
+                            <table class='table'>
+                                <tbody id='other-animations'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
 
@@ -252,6 +271,26 @@
             .then(res => {
                 for (animation of res) {
                     $('#double-replacement-animations').append(
+                        Row(
+                            `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
+                            animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
+                            animation.series ? animation.series : ''
+                        )
+                    )
+                }
+                if (res.message == "Invalid Token") {
+                    location.href = '../'
+                }
+            })
+
+        fetch(apiurl + "/?type=other", {
+            "headers": {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json())
+            .then(res => {
+                for (animation of res) {
+                    $('#other-animations').append(
                         Row(
                             `<a href='../player?a=${animation.id}'  >${animation.name}</a>`,
                             animation.reactants + " <span class='text-warning'>→</span> " + animation.products,
