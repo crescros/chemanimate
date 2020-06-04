@@ -14,6 +14,8 @@ let elements = {
     },
     "H": {
         "name": "Hydrogen",
+        "type": "nonmetal",
+        "oxidation_number": [-1, 1],
         "color": {
             "background": "black",
             "text": "white",
@@ -21,6 +23,8 @@ let elements = {
     },
     "Na": {
         "name": "Sodium",
+        "type":"metal",
+        "oxidation_number": 1,
         "color": {
             "background": "#f0ef8a",
             "text": "black",
@@ -28,6 +32,8 @@ let elements = {
     },
     "N": {
         "name": "Nitrogen",
+        "type": "nonmetal",
+        "oxidation_number": [-3, 3, 5],
         "color": {
             "background": "#154e96",
             "text": "white",
@@ -35,6 +41,8 @@ let elements = {
     },
     "Cl": {
         "name": "Chlorine",
+        "type": "nonmetal",
+        "oxidation_number": [-1, 1, 3, 5, 7],
         "color": {
             "background": "#c3e67c",
             "text": "black",
@@ -42,6 +50,8 @@ let elements = {
     },
     "C": {
         "name": "Carbon",
+        "type": "nonmetal",
+        "oxidation_number": [-4, 4],
         "color": {
             "background": "#78532c",
             "text": "white",
@@ -49,6 +59,8 @@ let elements = {
     },
     "Zn": {
         "name": "Zinc",
+        "type": "metal",
+        "oxidation_number": 2,
         "color": {
             "background": "#cfc8d0",
             "text": "black",
@@ -56,6 +68,8 @@ let elements = {
     },
     "Sn": {
         "name": "Tin",
+        "type": "metal",
+        "oxidation_number": [-4, 2, 4],
         "color": {
             "background": "#c8cdd8",
             "text": "black",
@@ -63,6 +77,8 @@ let elements = {
     },
     "Ni": {
         "name": "Nickel",
+        "type": "metal",
+        "oxidation_number": 2,
         "color": {
             "background": "#bbc1c1",
             "text": "black",
@@ -70,6 +86,8 @@ let elements = {
     },
     "Al": {
         "name": "Aluminum",
+        "type": "metal",
+        "oxidation_number": 3,
         "color": {
             "background": "#acabb2",
             "text": "black",
@@ -77,6 +95,8 @@ let elements = {
     },
     "Fe": {
         "name": "Iron",
+        "type": "metal",
+        "oxidation_number": [2, 3, 6],
         "color": {
             "background": "#413f40",
             "text": "white",
@@ -84,6 +104,8 @@ let elements = {
     },
     "Pb": {
         "name": "Lead",
+        "type": "metal",
+        "oxidation_number": [2, 3, 6],
         "color": {
             "background": "#5c5969",
             "text": "white",
@@ -91,6 +113,8 @@ let elements = {
     },
     "Cu": {
         "name": "Copper",
+        "type": "metal",
+        "oxidation_number": 2,
         "color": {
             "background": "#dcaf3e",
             "text": "black",
@@ -98,6 +122,8 @@ let elements = {
     },
     "Br": {
         "name": "Bromine",
+        "type": "nonmetal",
+        "oxidation_number": [-1, 1, 3, 5],
         "color": {
             "background": "#4f2a81",
             "text": "white",
@@ -105,6 +131,8 @@ let elements = {
     },
     "Au": {
         "name": "Gold",
+        "type": "metal",
+        "oxidation_number": [1, 3],
         "color": {
             "background": "#f2e15b",
             "text": "black",
@@ -112,6 +140,8 @@ let elements = {
     },
     "Ag": {
         "name": "Silver",
+        "type": "metal",
+        "oxidation_number": 1,
         "color": {
             "background": "#e0e6e8",
             "text": "black",
@@ -119,6 +149,8 @@ let elements = {
     },
     "Mn": {
         "name": "Manganese",
+        "type": "metal",
+        "oxidation_number": [2, 4, 7],
         "color": {
             "background": "#1d285e",
             "text": "white",
@@ -126,6 +158,8 @@ let elements = {
     },
     "Mg": {
         "name": "Magnesium",
+        "type": "metal",
+        "oxidation_number": 2,
         "color": {
             "background": "#cb9add",
             "text": "black",
@@ -133,6 +167,8 @@ let elements = {
     },
     "Pt": {
         "name": "Platinum",
+        "type": "metal",
+        "oxidation_number": [2, 4],
         "color": {
             "background": "#969fab",
             "text": "black",
@@ -140,6 +176,8 @@ let elements = {
     },
     "Ca": {
         "name": "Calcium",
+        "type": "metal",
+        "oxidation_number": 2,
         "color": {
             "background": "#f0b55f",
             "text": "black",
@@ -147,6 +185,8 @@ let elements = {
     },
     "K": {
         "name": "Potassium",
+        "type": "metal",
+        "oxidation_number": 1,
         "color": {
             "background": "#ea8a51",
             "text": "black",
@@ -154,6 +194,8 @@ let elements = {
     },
     "Rb": {
         "name": "Rubidium",
+        "type": "metal",
+        "oxidation_number": 1,
         "color": {
             "background": "#e14090",
             "text": "black",
@@ -161,6 +203,8 @@ let elements = {
     },
     "Li": {
         "name": "Lithium",
+        "type": "metal",
+        "oxidation_number": 1,
         "color": {
             "background": "#f1aed5",
             "text": "black",
@@ -168,12 +212,16 @@ let elements = {
     },
     "S": {
         "name": "Sulphur",
+        "type": "nonmetal",
+        "oxidation_number": [-2, 2, 4, 6],
         "color": {
             "background": "#aac752",
             "text": "black",
         },
     },
-};
+}
+
+
 
 let descriptions = {
     0: "atoms move, as positive and negative ions are attracted to eachother",
@@ -184,7 +232,9 @@ let descriptions = {
     5: "ionic bonds form between positive metal ions and negative non-metal ions",
     6: "ionic bonds break",
     7: "the more reactive metal gets to bond with the negative ions",
-    8: "new products are formed in a double replacement reaction if one of them is not soluble in the solution"
+    8: "new products are formed in a double replacement reaction if one of them is not soluble in the solution",
+    9: "atoms turn into ions due to energy in the environment",
+    10: "ions turn back into neutral atoms"
 }
 
 let activitySeries = [
@@ -347,17 +397,17 @@ const render = () => {
     $("#products").removeClass('text-underline')
 
     // if first step
-    if (step < 1 && !chemAnimateConfig.urlPrevious){
+    if (step < 1 && !chemAnimateConfig.urlPrevious) {
         $("#reactants").addClass('text-underline')
         $("#previousStep").hide();
     }
-    
+
     // if last step
-    if (step == states.length - 1 && !chemAnimateConfig.urlNext){
+    if (step == states.length - 1 && !chemAnimateConfig.urlNext) {
         $("#products").addClass('text-underline')
         $("#nextStep").hide();
     }
-    
+
     let positions = states[step].positions;
 
     //render bonds
