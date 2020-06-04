@@ -175,6 +175,18 @@ let elements = {
     },
 };
 
+let descriptions = {
+    0: "atoms move, as positive and negative ions are attracted to eachother",
+    1: "atoms move due to energy in the environment",
+    2: "molecules were moved to clearly show products",
+    3: "covalent bonds form between positive and negative ions that are both non-metals",
+    4: "covalent bonds break, forming ions",
+    5: "ionic bonds form between positive metal ions and negative non-metal ions",
+    6: "ionic bonds break",
+    7: "the more reactive metal gets to bond with the negative ions",
+    8: "new products are formed in a double replacement reaction if one of them is not soluble in the solution"
+}
+
 let activitySeries = [
     "Li",
     "Rb",
@@ -294,7 +306,7 @@ const Atom = (
             text,
             14,
             color.text,
-            10,
+            12,
             outerId,
             "symbol"
         )
@@ -374,7 +386,7 @@ const render = () => {
     });
 
     //render extra info
-    $("#description").text(states[step].description);
+    $("#description").text(descriptions[states[step].description]);
     $("#step").html(step + 1);
     document.getElementById("chemAnimate-display").innerHTML += "";
 };
