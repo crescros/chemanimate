@@ -7,77 +7,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../login/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background: url(https://unichord-apps.com/images/chemanimate.jpg) no-repeat">
 
-  <body class="body">
+<body>
 
 
-    <div class="login-page">
-      <div class="form">
-
-        <form >
-          <input id='username' type="text" placeholder="email address" />
-          <input id='password' type="password" placeholder="password" />
-          <input id='password-confirm' type="password" placeholder="confirm password" />
-
-          <button id='signup-form' type="button">SIGN UP</button>
-        </form>
-
-        <p><a href='../login/'>back to login</a></p>
-
+  <div class='container'>
+    <div class='row mt-4'>
+      <div class='col-md-3'>
 
       </div>
+      <div class='col-md-6'>
+        <div class='justify-content-center h-100'>
+          <div class='card'>
+            <div class='card-header'>
+              <h4>Chem<span class='text-success'>Animate</span> Sign Up</h4>
+            </div>
+            <div class='card-body'>
+              <div class="form">
+
+                <form id='login-form'>
+                  <div class='input-group form-group'>
+                    <input id="username" class='form-control' type="text" placeholder="&#xf007; username" required />
+                  </div>
+                  <div class='input-group form-group'>
+                    <input id="password" class='form-control' type="password" placeholder="&#xf023;  password"
+                      required />
+                  </div>
+                  <div class='input-group form-group'>
+                    <input id="password-confirm" class='form-control' type="password"
+                      placeholder="&#xf023;  confirm password" required />
+                  </div>
+                  <div class='form-group'>
+                    <button id='signup-form' class='btn float-right btn-success'>SIGN UP </button>
+                  </div>
+                </form>
+              </div>
+              <p class="message"></p>
+
+            </div>
+            <div class='card-footer'>
+              <div class='text-center'>
+                <a href='../login/'>back to login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class='col-md-3'>
+    </div>
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-    <script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
 
 
-      $('#signup-form').on('click', e => {
-        e.preventDefault()
-       
-        const password = $('#password').val()
-        const passwordConfirm = $('#password-confirm').val()
-        const username = $('#username').val()
+    $('#signup-form').on('click', e => {
+      e.preventDefault()
 
-        if (password !== passwordConfirm) {
-          alert("confim password doesn't match")
-          location.reload()
-          return false
+      const password = $('#password').val()
+      const passwordConfirm = $('#password-confirm').val()
+      const username = $('#username').val()
+
+      if (password !== passwordConfirm) {
+        alert("confim password doesn't match")
+        location.reload()
+        return false
+      }
+
+      const postBody = {
+        "username": username,
+        "password": password,
+      }
+
+      fetch('/chemanimate-app1/api/users/create/', {
+        "method": "post",
+        "body": JSON.stringify(postBody),
+        "headers": {
+          'Content-Type': 'application/json'
         }
+      }).then(res => res.json())
+        .then(res => {
+          alert(res.message)
+          location.href = '../login'
+        }).catch(e => {
+          console.log(e)
+        })
+    })
 
-        const postBody = {
-          "username": username,
-          "password": password,
-        }
-
-        fetch('/chemanimate-app1/api/users/create/', {
-          "method": "post",
-          "body": JSON.stringify(postBody),
-          "headers": {
-            'Content-Type': 'application/json'
-          }
-        }).then(res => res.json())
-          .then(res => {
-            alert(res.message)
-            location.href = '../login'
-          }).catch(e => {
-            console.log(e)
-          })
-      })
-
-    </script>
-  </body>
+  </script>
+</body>
 
 </html>

@@ -224,7 +224,7 @@ let elements = {
         "type": "metal",
         "oxidation_number": [1,2],
         "color": {
-            "background": "#aac752",
+            "background": "#f6b55f",
             "text": "black",
         },
     },
