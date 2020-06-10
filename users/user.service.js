@@ -38,7 +38,7 @@ async function makeOne({ username, password }) {
         users.push({
             "username": username,
             "password": password,
-            "groups": ["trial"]
+            "groups": ["member"]
         })
 
         fs.writeFileSync("data/users.json", JSON.stringify(users));
