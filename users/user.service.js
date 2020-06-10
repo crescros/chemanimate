@@ -54,7 +54,7 @@ async function makeOne({ username, password }) {
 }
 
 async function changePassword({ username, password, newpassword }) {
-    const userIndex = users.findIndex((u) => u.username === username.toLowerCase() && u.password === password
+    const userIndex = users.findIndex((u) => u.username.toLowerCase() === username.toLowerCase() && u.password === password
     );
 
     if (userIndex !== -1) {
