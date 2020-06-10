@@ -13,7 +13,7 @@ let users = JSON.parse(fs.readFileSync("data/users.json", "utf8"));
 
 async function authenticate({ username, password }) {
     const user = users.find(
-        (u) => u.username === username.toLowerCase() && u.password === password
+        (u) => u.username.toLowerCase() === username.toLowerCase() && u.password === password
     );
     if (user) {
         const token = jwt.sign({ sub: user.id }, process.env.SECRET);
