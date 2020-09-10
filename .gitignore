@@ -43,3 +43,6 @@ data
 .DS_Store
 .env
 config.json
+
+# GOOGLE CLOUD
+app.yml
